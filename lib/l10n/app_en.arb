@@ -1,0 +1,79 @@
+{
+  "@@locale": "en",
+  "appName": "StreamNet TV",
+  "slogan": "Your Premium IPTV Experience",
+  
+  "login": "Sign In",
+  "loginSubtitle": "Sign in to continue",
+  "logout": "Logout",
+  "logoutConfirmation": "Are you sure you want to logout?",
+  
+  "username": "Username",
+  "usernamePlaceholder": "Enter your username",
+  "usernameRequired": "Username is required",
+  "usernameMin3": "Username must be at least 3 characters",
+  
+  "password": "Password",
+  "passwordPlaceholder": "Enter your password",
+  "passwordRequired": "Password is required",
+  "passwordMin3": "Password must be at least 3 characters",
+  
+  "invalidCredentials": "Invalid username or password",
+  "connectionError": "Connection error. Please try again.",
+  "connectedTo": "Connected to StreamNet Server",
+  
+  "history": "History",
+  "liveTV": "Live TV",
+  "movies": "Movies",
+  "series": "Series",
+  "settings": "Settings",
+  "search": "Search",
+  
+  "connecting": "Connecting...",
+  "loadingContent": "Loading your content...",
+  "preparingCategories": "Loading categories...",
+  "preparingLiveStreams": "Loading live channels...",
+  "preparingMovies": "Loading movies...",
+  "preparingSeries": "Loading series...",
+  
+  "errorOccurred": "An error occurred",
+  "backToLogin": "Back to Login",
+  "cancel": "Cancel",
+  "close": "Close",
+  "retry": "Retry",
+  "save": "Save",
+  "delete": "Delete",
+  "edit": "Edit",
+  "refresh": "Refresh",
+  
+  "account": "Account",
+  "subscription": "Subscription",
+  "maxConnections": "Max Connections",
+  
+  "appearance": "Appearance",
+  "theme": "Theme",
+  "system": "System",
+  "light": "Light",
+  "dark": "Dark",
+  "language": "Language",
+  
+  "about": "About",
+  "appVersion": "App Version",
+  "server": "Server",
+  
+  "noContent": "No content available",
+  "noResults": "No results found",
+  "loading": "Loading...",
+  
+  "favorites": "Favorites",
+  "addToFavorites": "Add to Favorites",
+  "removeFromFavorites": "Remove from Favorites",
+  
+  "continueWatching": "Continue Watching",
+  "watchNow": "Watch Now",
+  "playNow": "Play Now",
+  
+  "categories": "Categories",
+  "allCategories": "All Categories",
+  "seeAll": "See All"
+}

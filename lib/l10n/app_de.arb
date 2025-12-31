@@ -1,0 +1,79 @@
+{
+  "@@locale": "de",
+  "appName": "StreamNet TV",
+  "slogan": "Dein Premium IPTV Erlebnis",
+  
+  "login": "Anmelden",
+  "loginSubtitle": "Melde dich an, um fortzufahren",
+  "logout": "Abmelden",
+  "logoutConfirmation": "Bist du sicher, dass du dich abmelden möchtest?",
+  
+  "username": "Benutzername",
+  "usernamePlaceholder": "Gib deinen Benutzernamen ein",
+  "usernameRequired": "Benutzername ist erforderlich",
+  "usernameMin3": "Benutzername muss mindestens 3 Zeichen haben",
+  
+  "password": "Passwort",
+  "passwordPlaceholder": "Gib dein Passwort ein",
+  "passwordRequired": "Passwort ist erforderlich",
+  "passwordMin3": "Passwort muss mindestens 3 Zeichen haben",
+  
+  "invalidCredentials": "Ungültiger Benutzername oder Passwort",
+  "connectionError": "Verbindungsfehler. Bitte erneut versuchen.",
+  "connectedTo": "Verbunden mit StreamNet Server",
+  
+  "history": "Verlauf",
+  "liveTV": "Live TV",
+  "movies": "Filme",
+  "series": "Serien",
+  "settings": "Einstellungen",
+  "search": "Suche",
+  
+  "connecting": "Verbinden...",
+  "loadingContent": "Lade deine Inhalte...",
+  "preparingCategories": "Lade Kategorien...",
+  "preparingLiveStreams": "Lade Live-Kanäle...",
+  "preparingMovies": "Lade Filme...",
+  "preparingSeries": "Lade Serien...",
+  
+  "errorOccurred": "Ein Fehler ist aufgetreten",
+  "backToLogin": "Zurück zur Anmeldung",
+  "cancel": "Abbrechen",
+  "close": "Schließen",
+  "retry": "Erneut versuchen",
+  "save": "Speichern",
+  "delete": "Löschen",
+  "edit": "Bearbeiten",
+  "refresh": "Aktualisieren",
+  
+  "account": "Konto",
+  "subscription": "Abonnement",
+  "maxConnections": "Max. Verbindungen",
+  
+  "appearance": "Erscheinungsbild",
+  "theme": "Design",
+  "system": "System",
+  "light": "Hell",
+  "dark": "Dunkel",
+  "language": "Sprache",
+  
+  "about": "Über",
+  "appVersion": "App-Version",
+  "server": "Server",
+  
+  "noContent": "Keine Inhalte verfügbar",
+  "noResults": "Keine Ergebnisse gefunden",
+  "loading": "Lädt...",
+  
+  "favorites": "Favoriten",
+  "addToFavorites": "Zu Favoriten hinzufügen",
+  "removeFromFavorites": "Aus Favoriten entfernen",
+  
+  "continueWatching": "Weiterschauen",
+  "watchNow": "Jetzt ansehen",
+  "playNow": "Jetzt abspielen",
+  
+  "categories": "Kategorien",
+  "allCategories": "Alle Kategorien",
+  "seeAll": "Alle anzeigen"
+}

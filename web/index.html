@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="$FLUTTER_BASE_HREF" />
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta
+      name="description"
+      content="StreamNet TV - Your Premium IPTV Experience"
+    />
+
+    <!-- iOS meta tags & icons -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="StreamNet TV" />
+    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#000000" />
+
+    <title>StreamNet TV</title>
+    <link rel="manifest" href="manifest.json" />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+      }
+
+      .loading-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+          180deg,
+          #1a1a2e 0%,
+          #16213e 50%,
+          #0f3460 100%
+        );
+      }
+
+      .logo {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #e5a00d, #cc7b19);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 24px;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+
+      .logo svg {
+        width: 60px;
+        height: 60px;
+        fill: white;
+      }
+
+      .app-name {
+        color: white;
+        font-size: 28px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+      }
+
+      .slogan {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-bottom: 32px;
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        gap: 4px;
+      }
+
+      .spinner-bar {
+        flex: 1;
+        background-color: #e5a00d;
+        animation: wave 1.2s ease-in-out infinite;
+      }
+
+      .spinner-bar:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .spinner-bar:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .spinner-bar:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      .spinner-bar:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes wave {
+        0%,
+        40%,
+        100% {
+          transform: scaleY(0.4);
+        }
+        20% {
+          transform: scaleY(1);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="loading-container" id="loading">
+      <div class="logo">
+        <svg viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </div>
+      <div class="app-name">StreamNet TV</div>
+      <div class="slogan">Your Premium IPTV Experience</div>
+      <div class="spinner">
+        <div class="spinner-bar"></div>
+        <div class="spinner-bar"></div>
+        <div class="spinner-bar"></div>
+        <div class="spinner-bar"></div>
+        <div class="spinner-bar"></div>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("flutter-first-frame", function () {
+        document.getElementById("loading").style.display = "none";
+      });
+    </script>
+
+    <script src="flutter_bootstrap.js" async></script>
+  </body>
+</html>
