@@ -1,0 +1,36 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Splash Screen Logo -->
+  
+  <!-- Background is set in flutter_native_splash config -->
+  
+  <!-- StreamNet TV Logo -->
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5c842;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e5a00d;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Outer Circle -->
+  <circle cx="512" cy="400" r="280" fill="none" stroke="url(#goldGradient)" stroke-width="8" filter="url(#glow)"/>
+  
+  <!-- Play Button -->
+  <path d="M420 280 L650 400 L420 520 Z" fill="url(#goldGradient)" filter="url(#glow)"/>
+  
+  <!-- Text: StreamNet -->
+  <text x="512" y="720" font-family="Arial, sans-serif" font-size="100" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    StreamNet
+  </text>
+  
+  <!-- Text: TV -->
+  <text x="512" y="820" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="#e5a00d" text-anchor="middle">
+    TV
+  </text>
+</svg>

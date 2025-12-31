@@ -1,0 +1,10 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Monochrome Icon for Android 13+ Themed Icons -->
+  <!-- Should be white on transparent background -->
+  
+  <!-- Play Button Circle -->
+  <circle cx="512" cy="512" r="400" fill="none" stroke="#ffffff" stroke-width="40"/>
+  
+  <!-- Play Triangle -->
+  <path d="M380 280 L750 512 L380 744 Z" fill="#ffffff"/>
+</svg>

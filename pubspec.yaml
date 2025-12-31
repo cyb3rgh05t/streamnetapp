@@ -26,12 +26,13 @@ dependencies:
 
   # Media Player - VLC for native platforms (Android/iOS)
   flutter_vlc_player: ^7.4.2
-  # Desktop players (Windows/Linux/macOS)
+  # Desktop players (Windows/Linux/macOS) - media_kit with libmpv
   media_kit: ^1.1.11
-  media_kit_video: ^1.2.5
+  media_kit_video: ^1.3.2
   media_kit_libs_windows_video: ^1.0.9
   media_kit_libs_linux: ^1.1.3
   media_kit_libs_macos_video: ^1.1.4
+  media_kit_libs_android_video: ^1.3.7
   # Web/fallback player
   video_player: ^2.9.2
 
@@ -57,6 +58,44 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   drift_dev: ^2.22.1
   build_runner: ^2.4.13
+  flutter_launcher_icons: ^0.14.2
+  flutter_native_splash: ^2.4.3
+
+# App Icon Configuration
+flutter_launcher_icons:
+  android: true
+  ios: true
+  windows: true
+  macos: true
+  web: true
+  image_path: "assets/icons/app_icon.png"
+
+  # Android Adaptive Icons (Android 8.0+)
+  adaptive_icon_background: "#121212"
+  adaptive_icon_foreground: "assets/icons/app_icon_foreground.png"
+  adaptive_icon_monochrome: "assets/icons/app_icon_monochrome.png"
+
+  # Android Round Icons (für Launcher die runde Icons bevorzugen)
+  adaptive_icon_round: true
+
+  min_sdk_android: 24
+
+# Splash Screen Configuration
+flutter_native_splash:
+  color: "#121212"
+  image: "assets/icons/splash_logo.png"
+  android: true
+  ios: true
+  web: true
+  android_12:
+    color: "#121212"
+    image: "assets/icons/splash_logo.png"
+    icon_background_color: "#121212"
+    branding: "assets/icons/splash_branding.png"
+
+# Force compatible versions for CI builds
+dependency_overrides:
+  media_kit_video: ^1.3.2
 
 flutter:
   uses-material-design: true

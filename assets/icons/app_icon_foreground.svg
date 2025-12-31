@@ -1,0 +1,20 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Transparent background - this is for the adaptive icon foreground -->
+  
+  <!-- Play Button Triangle with subtle shadow -->
+  <defs>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="10" stdDeviation="20" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Main Play Icon -->
+  <path d="M350 250 L780 512 L350 774 Z" fill="#e5a00d" filter="url(#shadow)"/>
+  
+  <!-- Inner Detail Lines -->
+  <rect x="400" y="400" width="180" height="8" rx="4" fill="#ffffff" opacity="0.3"/>
+  <rect x="400" y="450" width="140" height="8" rx="4" fill="#ffffff" opacity="0.2"/>
+  <rect x="400" y="500" width="160" height="8" rx="4" fill="#ffffff" opacity="0.3"/>
+  <rect x="400" y="550" width="120" height="8" rx="4" fill="#ffffff" opacity="0.2"/>
+  <rect x="400" y="600" width="150" height="8" rx="4" fill="#ffffff" opacity="0.3"/>
+</svg>

@@ -1,0 +1,20 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="512" cy="512" r="480" fill="#121212"/>
+  
+  <!-- Outer Ring with Gold Accent -->
+  <circle cx="512" cy="512" r="450" fill="none" stroke="#e5a00d" stroke-width="12"/>
+  
+  <!-- Inner Circle -->
+  <circle cx="512" cy="512" r="380" fill="#1e1e1e"/>
+  
+  <!-- Play Button Triangle -->
+  <path d="M380 280 L750 512 L380 744 Z" fill="#e5a00d"/>
+  
+  <!-- TV Screen Lines (stylized) -->
+  <rect x="420" y="420" width="200" height="8" rx="4" fill="#121212"/>
+  <rect x="420" y="460" width="160" height="8" rx="4" fill="#121212"/>
+  <rect x="420" y="500" width="180" height="8" rx="4" fill="#121212"/>
+  <rect x="420" y="540" width="140" height="8" rx="4" fill="#121212"/>
+  <rect x="420" y="580" width="170" height="8" rx="4" fill="#121212"/>
+</svg>
