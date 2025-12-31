@@ -8,6 +8,14 @@
 -keep class io.flutter.**  { *; }
 -keep class io.flutter.plugins.**  { *; }
 
+# Google Play Core (Deferred Components)
+-dontwarn com.google.android.play.core.**
+-keep class com.google.android.play.core.** { *; }
+
+# VLC Player
+-keep class org.videolan.libvlc.** { *; }
+-keep class org.videolan.medialibrary.** { *; }
+
 # Media Kit
 -keep class com.alexmercerind.** { *; }
 

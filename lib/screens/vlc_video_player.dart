@@ -30,6 +30,8 @@ class _VlcVideoPlayerState extends State<VlcVideoPlayer> {
   bool _showControls = true;
   bool _isPlaying = false;
   bool _isBuffering = true;
+  bool _hasError = false;
+  String? _errorMessage;
   double _volume = 100;
   double _sliderValue = 0;
   Duration _duration = Duration.zero;
@@ -58,6 +60,7 @@ class _VlcVideoPlayerState extends State<VlcVideoPlayer> {
   @override
   void initState() {
     super.initState();
+    debugPrint('VLC Player: Initializing with URL: ${widget.streamUrl}');
     _initializePlayer();
   }
 
@@ -72,14 +75,26 @@ class _VlcVideoPlayerState extends State<VlcVideoPlayer> {
       DeviceOrientation.landscapeRight,
     ]);
 
+    debugPrint('VLC Player: Creating controller for ${widget.streamUrl}');
+
     _controller = VlcPlayerController.network(
       widget.streamUrl,
       hwAcc: HwAcc.full,
       autoPlay: true,
       options: VlcPlayerOptions(
         advanced: VlcAdvancedOptions([
-          VlcAdvancedOptions.networkCaching(2000),
+          VlcAdvancedOptions.networkCaching(10000),
+          VlcAdvancedOptions.liveCaching(3000),
+          VlcAdvancedOptions.fileCaching(5000),
         ]),
+        extras: [
+          '--http-user-agent=VLC/3.0.20 LibVLC/3.0.20',
+          '--no-drop-late-frames',
+          '--no-skip-frames',
+          '--avcodec-fast',
+          '--network-caching=10000',
+          '--live-caching=3000',
+        ],
         subtitle: VlcSubtitleOptions([
           VlcSubtitleOptions.boldStyle(true),
           VlcSubtitleOptions.fontSize(24),
@@ -106,10 +121,21 @@ class _VlcVideoPlayerState extends State<VlcVideoPlayer> {
     final isBuffering = _controller.value.isBuffering;
     final duration = _controller.value.duration;
     final position = _controller.value.position;
+    final hasError = _controller.value.hasError;
+    final errorDescription = _controller.value.errorDescription;
+
+    if (hasError) {
+      debugPrint('VLC Player Error: $errorDescription');
+    }
+
+    debugPrint(
+        'VLC Player State: playing=$isPlaying, buffering=$isBuffering, hasError=$hasError');
 
     setState(() {
       _isPlaying = isPlaying;
       _isBuffering = isBuffering;
+      _hasError = hasError;
+      _errorMessage = errorDescription;
       _duration = duration;
       _position = position;
 
@@ -238,9 +264,64 @@ class _VlcVideoPlayerState extends State<VlcVideoPlayer> {
             ),
 
             // Buffering indicator
-            if (_isBuffering)
+            if (_isBuffering && !_hasError)
               const Center(
                 child: CircularProgressIndicator(color: AppConfig.primaryColor),
+              ),
+
+            // Error display
+            if (_hasError)
+              Center(
+                child: Container(
+                  padding: const EdgeInsets.all(24),
+                  margin: const EdgeInsets.all(24),
+                  decoration: BoxDecoration(
+                    color: Colors.black87,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.error_outline,
+                          color: Colors.red, size: 48),
+                      const SizedBox(height: 16),
+                      const Text(
+                        'Playback Error',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        _errorMessage ?? 'Unknown error',
+                        style:
+                            const TextStyle(color: Colors.grey, fontSize: 14),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        widget.streamUrl,
+                        style:
+                            const TextStyle(color: Colors.grey, fontSize: 10),
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            _hasError = false;
+                            _isBuffering = true;
+                          });
+                          _controller.play();
+                        },
+                        child: const Text('Retry'),
+                      ),
+                    ],
+                  ),
+                ),
               ),
 
             // Controls overlay
