@@ -72,10 +72,12 @@ class _SplashScreenState extends State<SplashScreen>
 
     // Check if user is already logged in
     final isLoggedIn = await AuthService.isLoggedIn();
+    debugPrint('SplashScreen: isLoggedIn = $isLoggedIn');
 
     if (!mounted) return;
 
     if (isLoggedIn) {
+      debugPrint('SplashScreen: User is logged in, loading data...');
       // Load user data via AuthController
       try {
         final authController =
@@ -120,6 +122,7 @@ class _SplashScreenState extends State<SplashScreen>
       );
     } else {
       // Navigate to login screen
+      debugPrint('SplashScreen: User NOT logged in, navigating to LoginScreen');
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
