@@ -1,12 +1,69 @@
 import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'app_localizations_de.dart';
+import 'app_localizations_en.dart';
+
+// ignore_for_file: type=lint
+
+/// Callers can lookup localized strings with an instance of AppLocalizations
+/// returned by `AppLocalizations.of(context)`.
+///
+/// Applications need to include `AppLocalizations.delegate()` in their app's
+/// `localizationDelegates` list, and the locales they support in the app's
+/// `supportedLocales` list. For example:
+///
+/// ```dart
+/// import 'l10n/app_localizations.dart';
+///
+/// return MaterialApp(
+///   localizationsDelegates: AppLocalizations.localizationsDelegates,
+///   supportedLocales: AppLocalizations.supportedLocales,
+///   home: MyApplicationHome(),
+/// );
+/// ```
+///
+/// ## Update pubspec.yaml
+///
+/// Please make sure to update your pubspec.yaml to include the following
+/// packages:
+///
+/// ```yaml
+/// dependencies:
+///   # Internationalization support.
+///   flutter_localizations:
+///     sdk: flutter
+///   intl: any # Use the pinned version from flutter_localizations
+///
+///   # Rest of dependencies
+/// ```
+///
+/// ## iOS Applications
+///
+/// iOS applications define key application metadata, including supported
+/// locales, in an Info.plist file that is built into the application bundle.
+/// To configure the locales supported by your app, you’ll need to edit this
+/// file.
+///
+/// First, open your project’s ios/Runner.xcworkspace Xcode workspace file.
+/// Then, in the Project Navigator, open the Info.plist file under the Runner
+/// project’s Runner folder.
+///
+/// Next, select the Information Property List item, select Add Item from the
+/// Editor menu, then select Localizations from the pop-up menu.
+///
+/// Select and expand the newly-created Localizations item then, for each
+/// locale your application supports, add a new item and select the locale
+/// you wish to add from the pop-up menu in the Value field. This list should
+/// be consistent with the languages listed in the AppLocalizations.supportedLocales
+/// property.
 abstract class AppLocalizations {
   AppLocalizations(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -17,116 +74,430 @@ abstract class AppLocalizations {
   static const LocalizationsDelegate<AppLocalizations> delegate =
       _AppLocalizationsDelegate();
 
+  /// A list of this localizations delegate along with the default localizations
+  /// delegates.
+  ///
+  /// Returns a list of localizations delegates containing this delegate along with
+  /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
+  /// and GlobalWidgetsLocalizations.delegate.
+  ///
+  /// Additional delegates can be added by appending to this list in
+  /// MaterialApp. This list does not have to be used at all if a custom list
+  /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
-        delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ];
-
-  static const List<Locale> supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('de'),
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
   ];
 
-  // App Identity
+  /// A list of this localizations delegate's supported locales.
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('de'),
+    Locale('en')
+  ];
+
+  /// No description provided for @appName.
+  ///
+  /// In en, this message translates to:
+  /// **'StreamNet TV'**
   String get appName;
+
+  /// No description provided for @slogan.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Premium IPTV Experience'**
   String get slogan;
 
-  // Auth
+  /// No description provided for @login.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
   String get login;
+
+  /// No description provided for @loginSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to continue'**
   String get loginSubtitle;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
   String get logout;
+
+  /// No description provided for @logoutConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to logout?'**
   String get logoutConfirmation;
 
-  // Username
+  /// No description provided for @username.
+  ///
+  /// In en, this message translates to:
+  /// **'Username'**
   String get username;
+
+  /// No description provided for @usernamePlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your username'**
   String get usernamePlaceholder;
+
+  /// No description provided for @usernameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Username is required'**
   String get usernameRequired;
+
+  /// No description provided for @usernameMin3.
+  ///
+  /// In en, this message translates to:
+  /// **'Username must be at least 3 characters'**
   String get usernameMin3;
 
-  // Password
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
   String get password;
+
+  /// No description provided for @passwordPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password'**
   String get passwordPlaceholder;
+
+  /// No description provided for @passwordRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Password is required'**
   String get passwordRequired;
+
+  /// No description provided for @passwordMin3.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 3 characters'**
   String get passwordMin3;
 
-  // Errors
+  /// No description provided for @invalidCredentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid username or password'**
   String get invalidCredentials;
+
+  /// No description provided for @connectionError.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection error. Please try again.'**
   String get connectionError;
+
+  /// No description provided for @connectedTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Connected to StreamNet Server'**
   String get connectedTo;
 
-  // Navigation
+  /// No description provided for @history.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
   String get history;
+
+  /// No description provided for @liveTV.
+  ///
+  /// In en, this message translates to:
+  /// **'Live TV'**
   String get liveTV;
+
+  /// No description provided for @movies.
+  ///
+  /// In en, this message translates to:
+  /// **'Movies'**
   String get movies;
+
+  /// No description provided for @series.
+  ///
+  /// In en, this message translates to:
+  /// **'Series'**
   String get series;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
   String get settings;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
   String get search;
 
-  // Loading
+  /// No description provided for @connecting.
+  ///
+  /// In en, this message translates to:
+  /// **'Connecting...'**
   String get connecting;
+
+  /// No description provided for @loadingContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading your content...'**
   String get loadingContent;
+
+  /// No description provided for @preparingCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading categories...'**
   String get preparingCategories;
+
+  /// No description provided for @preparingLiveStreams.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading live channels...'**
   String get preparingLiveStreams;
+
+  /// No description provided for @preparingMovies.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading movies...'**
   String get preparingMovies;
+
+  /// No description provided for @preparingSeries.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading series...'**
   String get preparingSeries;
 
-  // Common
+  /// No description provided for @errorOccurred.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred'**
   String get errorOccurred;
+
+  /// No description provided for @backToLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Login'**
   String get backToLogin;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
   String get cancel;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
   String get close;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
   String get retry;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
   String get save;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
   String get delete;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
   String get edit;
+
+  /// No description provided for @refresh.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh'**
   String get refresh;
 
-  // Account
+  /// No description provided for @account.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
   String get account;
+
+  /// No description provided for @subscription.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription'**
   String get subscription;
+
+  /// No description provided for @maxConnections.
+  ///
+  /// In en, this message translates to:
+  /// **'Max Connections'**
   String get maxConnections;
 
-  // Appearance
+  /// No description provided for @appearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
   String get appearance;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
   String get theme;
+
+  /// No description provided for @system.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
   String get system;
+
+  /// No description provided for @light.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
   String get light;
+
+  /// No description provided for @dark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
   String get dark;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
   String get language;
 
-  // About
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
   String get about;
+
+  /// No description provided for @appVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'App Version'**
   String get appVersion;
+
+  /// No description provided for @server.
+  ///
+  /// In en, this message translates to:
+  /// **'Server'**
   String get server;
 
-  // Content
+  /// No description provided for @noContent.
+  ///
+  /// In en, this message translates to:
+  /// **'No content available'**
   String get noContent;
+
+  /// No description provided for @noResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No results found'**
   String get noResults;
+
+  /// No description provided for @loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
   String get loading;
 
-  // Favorites
+  /// No description provided for @favorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
   String get favorites;
+
+  /// No description provided for @addToFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Favorites'**
   String get addToFavorites;
+
+  /// No description provided for @removeFromFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from Favorites'**
   String get removeFromFavorites;
 
-  // Watch
+  /// No description provided for @continueWatching.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue Watching'**
   String get continueWatching;
+
+  /// No description provided for @watchNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Watch Now'**
   String get watchNow;
+
+  /// No description provided for @playNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Play Now'**
   String get playNow;
 
-  // Categories
+  /// No description provided for @categories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
   String get categories;
+
+  /// No description provided for @allCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'All Categories'**
   String get allCategories;
+
+  /// No description provided for @seeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See All'**
   String get seeAll;
 
-  // Content filters
-  String get noChannelsFound;
-  String get noMoviesFound;
+  /// No description provided for @noSeriesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No series found'**
   String get noSeriesFound;
+
+  /// No description provided for @noMoviesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No movies found'**
+  String get noMoviesFound;
+
+  /// No description provided for @noChannelsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No channels found'**
+  String get noChannelsFound;
+
+  /// No description provided for @noEpisodesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No episodes found'**
   String get noEpisodesFound;
+
+  /// No description provided for @season.
+  ///
+  /// In en, this message translates to:
+  /// **'Season'**
   String get season;
 }
 
@@ -136,332 +507,29 @@ class _AppLocalizationsDelegate
 
   @override
   Future<AppLocalizations> load(Locale locale) {
-    return SynchronousFuture<AppLocalizations>(_lookupAppLocalizations(locale));
+    return SynchronousFuture<AppLocalizations>(lookupAppLocalizations(locale));
   }
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['en', 'de'].contains(locale.languageCode);
+      <String>['de', 'en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
-AppLocalizations _lookupAppLocalizations(Locale locale) {
+AppLocalizations lookupAppLocalizations(Locale locale) {
+  // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'de':
       return AppLocalizationsDe();
     case 'en':
-    default:
       return AppLocalizationsEn();
   }
-}
 
-class AppLocalizationsEn extends AppLocalizations {
-  AppLocalizationsEn([String locale = 'en']) : super(locale);
-
-  @override
-  String get appName => 'StreamNet TV';
-  @override
-  String get slogan => 'Your Premium IPTV Experience';
-
-  @override
-  String get login => 'Sign In';
-  @override
-  String get loginSubtitle => 'Sign in to continue';
-  @override
-  String get logout => 'Logout';
-  @override
-  String get logoutConfirmation => 'Are you sure you want to logout?';
-
-  @override
-  String get username => 'Username';
-  @override
-  String get usernamePlaceholder => 'Enter your username';
-  @override
-  String get usernameRequired => 'Username is required';
-  @override
-  String get usernameMin3 => 'Username must be at least 3 characters';
-
-  @override
-  String get password => 'Password';
-  @override
-  String get passwordPlaceholder => 'Enter your password';
-  @override
-  String get passwordRequired => 'Password is required';
-  @override
-  String get passwordMin3 => 'Password must be at least 3 characters';
-
-  @override
-  String get invalidCredentials => 'Invalid username or password';
-  @override
-  String get connectionError => 'Connection error. Please try again.';
-  @override
-  String get connectedTo => 'Connected to StreamNet Server';
-
-  @override
-  String get history => 'History';
-  @override
-  String get liveTV => 'Live TV';
-  @override
-  String get movies => 'Movies';
-  @override
-  String get series => 'Series';
-  @override
-  String get settings => 'Settings';
-  @override
-  String get search => 'Search';
-
-  @override
-  String get connecting => 'Connecting...';
-  @override
-  String get loadingContent => 'Loading your content...';
-  @override
-  String get preparingCategories => 'Loading categories...';
-  @override
-  String get preparingLiveStreams => 'Loading live channels...';
-  @override
-  String get preparingMovies => 'Loading movies...';
-  @override
-  String get preparingSeries => 'Loading series...';
-
-  @override
-  String get errorOccurred => 'An error occurred';
-  @override
-  String get backToLogin => 'Back to Login';
-  @override
-  String get cancel => 'Cancel';
-  @override
-  String get close => 'Close';
-  @override
-  String get retry => 'Retry';
-  @override
-  String get save => 'Save';
-  @override
-  String get delete => 'Delete';
-  @override
-  String get edit => 'Edit';
-  @override
-  String get refresh => 'Refresh';
-
-  @override
-  String get account => 'Account';
-  @override
-  String get subscription => 'Subscription';
-  @override
-  String get maxConnections => 'Max Connections';
-
-  @override
-  String get appearance => 'Appearance';
-  @override
-  String get theme => 'Theme';
-  @override
-  String get system => 'System';
-  @override
-  String get light => 'Light';
-  @override
-  String get dark => 'Dark';
-  @override
-  String get language => 'Language';
-
-  @override
-  String get about => 'About';
-  @override
-  String get appVersion => 'App Version';
-  @override
-  String get server => 'Server';
-
-  @override
-  String get noContent => 'No content available';
-  @override
-  String get noResults => 'No results found';
-  @override
-  String get loading => 'Loading...';
-
-  @override
-  String get favorites => 'Favorites';
-  @override
-  String get addToFavorites => 'Add to Favorites';
-  @override
-  String get removeFromFavorites => 'Remove from Favorites';
-
-  @override
-  String get continueWatching => 'Continue Watching';
-  @override
-  String get watchNow => 'Watch Now';
-  @override
-  String get playNow => 'Play Now';
-
-  @override
-  String get categories => 'Categories';
-  @override
-  String get allCategories => 'All Categories';
-  @override
-  String get seeAll => 'See All';
-
-  @override
-  String get noChannelsFound => 'No channels found';
-  @override
-  String get noMoviesFound => 'No movies found';
-  @override
-  String get noSeriesFound => 'No series found';
-  @override
-  String get noEpisodesFound => 'No episodes found';
-  @override
-  String get season => 'Season';
-}
-
-class AppLocalizationsDe extends AppLocalizations {
-  AppLocalizationsDe([String locale = 'de']) : super(locale);
-
-  @override
-  String get appName => 'StreamNet TV';
-  @override
-  String get slogan => 'Dein Premium IPTV Erlebnis';
-
-  @override
-  String get login => 'Anmelden';
-  @override
-  String get loginSubtitle => 'Melde dich an, um fortzufahren';
-  @override
-  String get logout => 'Abmelden';
-  @override
-  String get logoutConfirmation =>
-      'Bist du sicher, dass du dich abmelden möchtest?';
-
-  @override
-  String get username => 'Benutzername';
-  @override
-  String get usernamePlaceholder => 'Gib deinen Benutzernamen ein';
-  @override
-  String get usernameRequired => 'Benutzername ist erforderlich';
-  @override
-  String get usernameMin3 => 'Benutzername muss mindestens 3 Zeichen haben';
-
-  @override
-  String get password => 'Passwort';
-  @override
-  String get passwordPlaceholder => 'Gib dein Passwort ein';
-  @override
-  String get passwordRequired => 'Passwort ist erforderlich';
-  @override
-  String get passwordMin3 => 'Passwort muss mindestens 3 Zeichen haben';
-
-  @override
-  String get invalidCredentials => 'Ungültiger Benutzername oder Passwort';
-  @override
-  String get connectionError => 'Verbindungsfehler. Bitte erneut versuchen.';
-  @override
-  String get connectedTo => 'Verbunden mit StreamNet Server';
-
-  @override
-  String get history => 'Verlauf';
-  @override
-  String get liveTV => 'Live TV';
-  @override
-  String get movies => 'Filme';
-  @override
-  String get series => 'Serien';
-  @override
-  String get settings => 'Einstellungen';
-  @override
-  String get search => 'Suche';
-
-  @override
-  String get connecting => 'Verbinden...';
-  @override
-  String get loadingContent => 'Lade deine Inhalte...';
-  @override
-  String get preparingCategories => 'Lade Kategorien...';
-  @override
-  String get preparingLiveStreams => 'Lade Live-Kanäle...';
-  @override
-  String get preparingMovies => 'Lade Filme...';
-  @override
-  String get preparingSeries => 'Lade Serien...';
-
-  @override
-  String get errorOccurred => 'Ein Fehler ist aufgetreten';
-  @override
-  String get backToLogin => 'Zurück zur Anmeldung';
-  @override
-  String get cancel => 'Abbrechen';
-  @override
-  String get close => 'Schließen';
-  @override
-  String get retry => 'Erneut versuchen';
-  @override
-  String get save => 'Speichern';
-  @override
-  String get delete => 'Löschen';
-  @override
-  String get edit => 'Bearbeiten';
-  @override
-  String get refresh => 'Aktualisieren';
-
-  @override
-  String get account => 'Konto';
-  @override
-  String get subscription => 'Abonnement';
-  @override
-  String get maxConnections => 'Max. Verbindungen';
-
-  @override
-  String get appearance => 'Erscheinungsbild';
-  @override
-  String get theme => 'Design';
-  @override
-  String get system => 'System';
-  @override
-  String get light => 'Hell';
-  @override
-  String get dark => 'Dunkel';
-  @override
-  String get language => 'Sprache';
-
-  @override
-  String get about => 'Über';
-  @override
-  String get appVersion => 'App-Version';
-  @override
-  String get server => 'Server';
-
-  @override
-  String get noContent => 'Keine Inhalte verfügbar';
-  @override
-  String get noResults => 'Keine Ergebnisse gefunden';
-  @override
-  String get loading => 'Lädt...';
-
-  @override
-  String get favorites => 'Favoriten';
-  @override
-  String get addToFavorites => 'Zu Favoriten hinzufügen';
-  @override
-  String get removeFromFavorites => 'Aus Favoriten entfernen';
-
-  @override
-  String get continueWatching => 'Weiterschauen';
-  @override
-  String get watchNow => 'Jetzt ansehen';
-  @override
-  String get playNow => 'Jetzt abspielen';
-
-  @override
-  String get categories => 'Kategorien';
-  @override
-  String get allCategories => 'Alle Kategorien';
-  @override
-  String get seeAll => 'Alle anzeigen';
-
-  @override
-  String get noChannelsFound => 'Keine Kanäle gefunden';
-  @override
-  String get noMoviesFound => 'Keine Filme gefunden';
-  @override
-  String get noSeriesFound => 'Keine Serien gefunden';
-  @override
-  String get noEpisodesFound => 'Keine Episoden gefunden';
-  @override
-  String get season => 'Staffel';
+  throw FlutterError(
+      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }

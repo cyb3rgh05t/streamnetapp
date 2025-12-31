@@ -75,5 +75,11 @@
   
   "categories": "Categories",
   "allCategories": "All Categories",
-  "seeAll": "See All"
+  "seeAll": "See All",
+  
+  "noSeriesFound": "No series found",
+  "noMoviesFound": "No movies found",
+  "noChannelsFound": "No channels found",
+  "noEpisodesFound": "No episodes found",
+  "season": "Season"
 }

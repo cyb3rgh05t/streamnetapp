@@ -276,7 +276,7 @@ class _DataLoaderScreenState extends State<DataLoaderScreen>
                   Container(
                     width: 80,
                     height: 80,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       gradient: LinearGradient(
                         colors: [AppThemes.primaryGold, AppThemes.buttonColor],

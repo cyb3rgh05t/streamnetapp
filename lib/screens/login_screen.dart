@@ -46,8 +46,8 @@ class _LoginScreenState extends State<LoginScreen>
 
     _slideAnimation =
         Tween<Offset>(begin: const Offset(0, 0.3), end: Offset.zero).animate(
-          CurvedAnimation(parent: _animationController, curve: Curves.easeOut),
-        );
+      CurvedAnimation(parent: _animationController, curve: Curves.easeOut),
+    );
 
     _animationController.forward();
   }
@@ -89,8 +89,7 @@ class _LoginScreenState extends State<LoginScreen>
       );
     } else {
       setState(() {
-        _errorMessage =
-            authController.errorMessage ??
+        _errorMessage = authController.errorMessage ??
             AppLocalizations.of(context)?.invalidCredentials ??
             'Invalid username or password';
       });
@@ -299,7 +298,7 @@ class _LoginScreenState extends State<LoginScreen>
                   ),
                   child: Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.info_outline,
                         color: AppThemes.primaryGold,
                         size: 20,
@@ -308,7 +307,7 @@ class _LoginScreenState extends State<LoginScreen>
                       Expanded(
                         child: Text(
                           l10n?.connectedTo ?? 'Connected to StreamNet Server',
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: AppThemes.primaryGold,
                             fontSize: 13,
                           ),

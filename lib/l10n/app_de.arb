@@ -75,5 +75,11 @@
   
   "categories": "Kategorien",
   "allCategories": "Alle Kategorien",
-  "seeAll": "Alle anzeigen"
+  "seeAll": "Alle anzeigen",
+  
+  "noSeriesFound": "Keine Serien gefunden",
+  "noMoviesFound": "Keine Filme gefunden",
+  "noChannelsFound": "Keine Kanäle gefunden",
+  "noEpisodesFound": "Keine Episoden gefunden",
+  "season": "Staffel"
 }

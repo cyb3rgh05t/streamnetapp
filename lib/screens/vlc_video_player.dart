@@ -569,7 +569,7 @@ class _VlcVideoPlayerState extends State<VlcVideoPlayer> {
                 title: const Text('Wiedergabegeschwindigkeit',
                     style: TextStyle(color: Colors.white)),
                 subtitle: Text('${_playbackSpeed}x',
-                    style: TextStyle(color: Colors.white70)),
+                    style: const TextStyle(color: Colors.white70)),
                 onTap: () {
                   Navigator.pop(context);
                   _showSpeedPickerDialog();
@@ -583,7 +583,7 @@ class _VlcVideoPlayerState extends State<VlcVideoPlayer> {
                 title: const Text('Seitenverhältnis',
                     style: TextStyle(color: Colors.white)),
                 subtitle: Text(_getFitName(_videoFit),
-                    style: TextStyle(color: Colors.white70)),
+                    style: const TextStyle(color: Colors.white70)),
                 onTap: () {
                   Navigator.pop(context);
                   _showAspectRatioDialog();

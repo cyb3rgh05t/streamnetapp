@@ -136,9 +136,9 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           width: 50,
           height: 50,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
-            gradient: const RadialGradient(
+            gradient: RadialGradient(
               colors: [AppThemes.primaryGold, AppThemes.buttonColor],
             ),
           ),
