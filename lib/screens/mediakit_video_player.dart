@@ -182,46 +182,63 @@ class _MediaKitVideoPlayerState extends State<MediaKitVideoPlayer> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: GestureDetector(
-        onTap: _toggleControls,
-        child: Stack(
-          children: [
-            // Video
-            Center(
-              child: SizedBox.expand(
-                child: FittedBox(
-                  fit: _videoFit,
-                  child: SizedBox(
-                    width: 1920,
-                    height: 1080,
-                    child: Video(
-                      controller: _controller,
-                      fill: Colors.black,
+      body: MouseRegion(
+        onEnter: (_) => _showControlsTemporarily(),
+        onHover: (_) => _showControlsTemporarily(),
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: _toggleControls,
+          onDoubleTap: () {
+            // Double tap to play/pause
+            _player.playOrPause();
+          },
+          child: Stack(
+            children: [
+              // Video - wrapped to not intercept taps
+              Positioned.fill(
+                child: IgnorePointer(
+                  child: FittedBox(
+                    fit: _videoFit,
+                    child: SizedBox(
+                      width: 1920,
+                      height: 1080,
+                      child: Video(
+                        controller: _controller,
+                        fill: Colors.black,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
 
-            // Buffering indicator
-            if (_isBuffering)
-              const Center(
-                child: CircularProgressIndicator(color: AppConfig.primaryColor),
-              ),
+              // Buffering indicator
+              if (_isBuffering)
+                const Center(
+                  child:
+                      CircularProgressIndicator(color: AppConfig.primaryColor),
+                ),
 
-            // Controls overlay
-            AnimatedOpacity(
-              opacity: _showControls ? 1.0 : 0.0,
-              duration: const Duration(milliseconds: 300),
-              child: IgnorePointer(
-                ignoring: !_showControls,
-                child: _buildControlsOverlay(),
+              // Controls overlay
+              AnimatedOpacity(
+                opacity: _showControls ? 1.0 : 0.0,
+                duration: const Duration(milliseconds: 300),
+                child: IgnorePointer(
+                  ignoring: !_showControls,
+                  child: _buildControlsOverlay(),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  void _showControlsTemporarily() {
+    if (!_showControls) {
+      setState(() => _showControls = true);
+    }
+    _startControlsTimer();
   }
 
   Widget _buildControlsOverlay() {

@@ -6,7 +6,7 @@ import 'video_player_web.dart';
 import 'vlc_video_player.dart'
     if (dart.library.html) 'vlc_video_player_web.dart';
 import 'mediakit_video_player.dart'
-    if (dart.library.html) 'vlc_video_player_web.dart';
+    if (dart.library.html) 'mediakit_video_player_web.dart';
 
 /// Video Player Screen - Routes to the appropriate player based on platform
 /// - Android/iOS: VLC Player (best codec support for mobile)
